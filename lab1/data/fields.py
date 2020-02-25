@@ -8,6 +8,7 @@ MAJORITY_FIELDS = (PROMO_CODE, PORTAL_LEVEL)
 MINORITY_FIELDS = (PLAYER_DISTANCE, SHOP_DISTANCE)
 
 MATRIX = 'matrix'
+PRIORITY_LEVELS = 'priority_levels'
 NORMING_MATRIX = 'norming_matrix'
 ENTROPY = 'entropy'
 VARIABILITY = 'variability'
@@ -28,3 +29,13 @@ WORST_ALTERNATIVE = 'worst_alternative'
 
 REPORT = 'report'
 BEST_ALTERNATIVE = 'best_alternative'
+
+LIST = 'list'
+ASSESSMENT = 'assessment'
+
+AGREED = 'agreed'
+NOT_AGREED = 'not_agreed'
+VALUES_SET = 'values_set'
+CRITERIA = 'criteria'
+
+PERMUTATION_LIST = 'permutation_list'
