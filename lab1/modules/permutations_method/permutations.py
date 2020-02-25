@@ -11,16 +11,21 @@ class Permutations:
     _importance = {}
 
     @staticmethod
-    def init(decision_support_matrix: list):
+    def get_result(decision_support_matrix: list):
+        Permutations._decision_support_matrix = decision_support_matrix
+        Permutations._init()
+        return Permutations._get_json()
+
+    @staticmethod
+    def _init():
         result = []
         arr = []
 
-        Permutations._decision_support_matrix = decision_support_matrix
-        Permutations._importance = Importance.get_entropy_values(decision_support_matrix)
+        Permutations._importance = Importance.get_entropy_values(Permutations._decision_support_matrix)
 
         Permutations._create_priority_levels()
 
-        for index in range(0, len(decision_support_matrix)):
+        for index in range(0, len(Permutations._decision_support_matrix)):
             arr.append(index)
 
         for permutation in itertools.permutations(arr, len(arr)):
@@ -33,7 +38,8 @@ class Permutations:
             result.append(row)
 
         result = sorted(result, key=lambda x: x[ASSESSMENT], reverse=True)
-        print(result)
+
+        Permutations._permutation_list = result
 
     @staticmethod
     def _create_priority_levels():
@@ -105,3 +111,12 @@ class Permutations:
             result += agreed_sum - not_agreed_sum
 
         return result
+
+    @staticmethod
+    def _get_json():
+        return {
+            MATRIX: Permutations._decision_support_matrix,
+            PRIORITY_LEVELS: Permutations._priority_levels,
+            PERMUTATION_LIST: Permutations._permutation_list,
+            COMPLEX_IMPORTANCE: Permutations._importance
+        }

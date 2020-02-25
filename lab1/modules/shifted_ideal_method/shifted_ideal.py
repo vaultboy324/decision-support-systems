@@ -147,6 +147,7 @@ class ShiftedIdeal:
     def _get_json():
         return {
             MATRIX: ShiftedIdeal._decision_support_matrix,
+            PRIORITY_LEVELS: ShiftedIdeal._priority_levels,
             IDEAL: ShiftedIdeal._ideal_object,
             DEFECTIVE: ShiftedIdeal._defective_object,
             RELATIVE_UNITS: ShiftedIdeal._relative_units_matrix,
