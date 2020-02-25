@@ -28,3 +28,11 @@ WORST_ALTERNATIVE = 'worst_alternative'
 
 REPORT = 'report'
 BEST_ALTERNATIVE = 'best_alternative'
+
+LIST = 'list'
+ASSESSMENT = 'assessment'
+
+AGREED = 'agreed'
+NOT_AGREED = 'not_agreed'
+VALUES_SET = 'values_set'
+CRITERIA = 'criteria'
