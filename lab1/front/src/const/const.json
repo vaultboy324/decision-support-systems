@@ -6,7 +6,7 @@
     },
     {
       "dataField": "player_distance",
-      "text": "Расстояние до игрока(м)"
+      "text": "Расстояние до игрока"
     },
     {
       "dataField": "portal_level",
@@ -14,11 +14,11 @@
     },
     {
       "dataField": "promo_code",
-      "text": "Размер промо-кода(%)"
+      "text": "Размер промо-кода"
     },
     {
       "dataField": "shop_distance",
-      "text": "Расстояние до магазина(м)"
+      "text": "Расстояние до магазина"
     }
   ],
   "distance_table_columns": [
@@ -69,6 +69,20 @@
       "text": "p=5"
     }
   ],
+  "permutation_list_columns": [
+    {
+      "dataField": "list",
+      "text": "Перестановка"
+    },
+    {
+      "dataField": "assessment",
+      "text": "Оценка"
+    },
+    {
+      "dataField": "report",
+      "text": "Описание"
+    }
+  ],
   "texts": {
     "matrix": "Матрица принятия решений",
     "relative_units": "Нормированная матрица принятия решений",
@@ -82,6 +96,7 @@
     "expert_assessment": "Экспертная оценка",
     "complex_importance": "Комплексная важность",
     "distance_table": "Таблица расстояний",
-    "ranged_distance_table": "Ранжированная таблица расстояний"
+    "ranged_distance_table": "Ранжированная таблица расстояний",
+    "permutation_list": "Таблица перестановок"
   }
 }

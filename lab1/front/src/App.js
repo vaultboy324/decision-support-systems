@@ -1,4 +1,5 @@
 import React from 'react';
+import {BrowserRouter, Route, Switch} from "react-router-dom";
 import logo from './logo.svg';
 
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -7,11 +8,17 @@ import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import './App.css';
 
 import ShiftedIdeal from "./components/shifted_ideal/shifted_ideal";
+import Permutations from "./components/permutations/permutations";
 
 function App() {
   return (
     <div className="App">
-      <ShiftedIdeal/>
+        <BrowserRouter>
+            <Switch>
+                <Route exact path="/shifted_ideal" component={ShiftedIdeal}/>
+                <Route exact path={"/permutations"} component={Permutations}/>
+            </Switch>
+        </BrowserRouter>
       {/*<header className="App-header">*/}
       {/*  <img src={logo} className="App-logo" alt="logo" />*/}
       {/*  <p>*/}
