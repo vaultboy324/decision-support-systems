@@ -1,0 +1,102 @@
+{
+  "decision_support_columns": [
+    {
+      "dataField": "number",
+      "text": "Номер альтернативы"
+    },
+    {
+      "dataField": "player_distance",
+      "text": "Расстояние до игрока"
+    },
+    {
+      "dataField": "portal_level",
+      "text": "Уровень портала"
+    },
+    {
+      "dataField": "promo_code",
+      "text": "Размер промо-кода"
+    },
+    {
+      "dataField": "shop_distance",
+      "text": "Расстояние до магазина"
+    }
+  ],
+  "distance_table_columns": [
+    {
+      "dataField": "number",
+      "text": "Номер альтернативы"
+    },
+    {
+      "dataField": "1",
+      "text": "p=1"
+    },
+    {
+      "dataField": "2",
+      "text": "p=2"
+    },
+    {
+      "dataField": "3",
+      "text": "p=3"
+    },
+    {
+      "dataField": "4",
+      "text": "p=4"
+    },
+    {
+      "dataField": "5",
+      "text": "p=5"
+    }
+  ],
+  "range_distance_table_columns": [
+    {
+      "dataField": "1",
+      "text": "p=1"
+    },
+    {
+      "dataField": "2",
+      "text": "p=2"
+    },
+    {
+      "dataField": "3",
+      "text": "p=3"
+    },
+    {
+      "dataField": "4",
+      "text": "p=4"
+    },
+    {
+      "dataField": "5",
+      "text": "p=5"
+    }
+  ],
+  "permutation_list_columns": [
+    {
+      "dataField": "list",
+      "text": "Перестановка"
+    },
+    {
+      "dataField": "assessment",
+      "text": "Оценка"
+    },
+    {
+      "dataField": "report",
+      "text": "Описание"
+    }
+  ],
+  "texts": {
+    "matrix": "Матрица принятия решений",
+    "relative_units": "Нормированная матрица принятия решений",
+    "best_alternative": "Лучшая альтернатива",
+    "worst_alternative": "Худшая альтернатива",
+    "ordered_table": "Упорядоченная матрица принятия решений",
+    "priority_levels": "Важность критериев",
+    "ideal_object": "Идеальный объект",
+    "defective_object": "Неидеальный объект",
+    "entropy": "Энтропия",
+    "expert_assessment": "Экспертная оценка",
+    "complex_importance": "Комплексная важность",
+    "distance_table": "Таблица расстояний",
+    "ranged_distance_table": "Ранжированная таблица расстояний",
+    "permutation_list": "Таблица перестановок"
+  }
+}
