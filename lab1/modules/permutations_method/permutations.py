@@ -114,6 +114,10 @@ class Permutations:
 
     @staticmethod
     def _get_json():
+        for permutation in Permutations._permutation_list:
+            for criterion in permutation[CRITERIA]:
+                criterion[VALUES_SET] = list(criterion[VALUES_SET])
+
         return {
             MATRIX: Permutations._decision_support_matrix,
             PRIORITY_LEVELS: Permutations._priority_levels,
