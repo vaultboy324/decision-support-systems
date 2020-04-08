@@ -1,0 +1,98 @@
+{
+  "tables": {
+    "prefers_table": {
+      "columns": [
+        {
+          "dataField": "field_name",
+          "text": "Название критерия"
+        },
+        {
+          "dataField": "player_distance",
+          "text": "Расстояние до игрока"
+        },
+        {
+          "dataField": "shop_distance",
+          "text": "Расстояние до магазина"
+        },
+        {
+          "dataField": "promo_code",
+          "text": "Размер промо-кода"
+        },
+        {
+          "dataField": "portal_level",
+          "text": "Уровень портала"
+        },
+        {
+          "dataField": "count_other_players",
+          "text": "Количество других игроков"
+        },
+        {
+          "dataField": "norming_values",
+          "text": "Нормированное значение"
+        }
+      ],
+      "title": "Таблица предпочтений"
+    },
+    "parameters_table": {
+      "columns": [
+        {
+          "dataField": "lambda_max",
+          "text": "lambda max"
+        },
+        {
+          "dataField": "is",
+          "text": "ИС"
+        },
+        {
+          "dataField": "si",
+          "text": "СИ"
+        },
+        {
+          "dataField": "os",
+          "text": "ОС"
+        }
+      ]
+    },
+    "comparison_table": {
+      "columns": [
+        {
+          "dataField": "alternative",
+          "text": "Номер альтернативы"
+        }
+      ]
+    },
+    "levelsTable": {
+      "columns": [
+        {
+          "dataField": "levelNumber",
+          "text": "Номер уровня"
+        },
+        {
+          "dataField": "value",
+          "text": "Значение"
+        }
+      ],
+      "title": "Уровни"
+    }
+  },
+  "texts": {
+    "field_name": "Название критерия",
+    "player_distance": "Расстояние до игрока",
+    "shop_distance": "Расстояние до магазина",
+    "promo_code": "Размер промо-кода",
+    "portal_level": "Уровень портала",
+    "count_other_players": "Количество других игроков",
+    "norming_values": "Нормированное значение",
+    "iteration": "Итерационный метод",
+    "directed": "Прямой метод"
+  },
+  "fields": {
+    "parameters": "parameters",
+    "fieldName": "field_name",
+    "normingValues": "norming_values",
+    "alternative": "alternative",
+    "levelNumber": "levelNumber",
+    "value": "value"
+  },
+  "fieldList": ["player_distance", "shop_distance", "promo_code", "portal_level", "count_other_players"]
+}
