@@ -5,6 +5,7 @@ from data import fields
 
 
 class HierarchyAnalyze:
+    _method = ''
     _dataset = []
     _dataset_matrix = []
     _prefers_table = {}
@@ -16,11 +17,27 @@ class HierarchyAnalyze:
     _levels = []
 
     @staticmethod
-    def _init(dataset, prefers_table):
-        HierarchyAnalyze._dataset = dataset
-        HierarchyAnalyze._prefers_table = prefers_table
+    def __clear():
+        HierarchyAnalyze._method = ''
+        HierarchyAnalyze._dataset = []
+        HierarchyAnalyze._dataset_matrix = []
+        HierarchyAnalyze._prefers_table = {}
+        HierarchyAnalyze._prefers_matrix = []
+        HierarchyAnalyze._v = []
+        HierarchyAnalyze._lambda_max = 0
+        HierarchyAnalyze._paired_comparisons = []
+        HierarchyAnalyze._random_index = 1.12
+        HierarchyAnalyze._levels = []
 
-        for criteria in HierarchyAnalyze._prefers_table:
+    @staticmethod
+    def _init(dataset, prefers_table, method):
+        HierarchyAnalyze.__clear()
+
+        HierarchyAnalyze._method = method
+        HierarchyAnalyze._dataset = dataset.copy()
+        HierarchyAnalyze._prefers_table = prefers_table.copy()
+
+        for criteria in fields.FIELD_LIST:
             row = []
             for comparable_criteria in HierarchyAnalyze._prefers_table[criteria]:
                 row.append(HierarchyAnalyze._prefers_table[criteria][comparable_criteria])
@@ -34,13 +51,16 @@ class HierarchyAnalyze:
 
     @staticmethod
     def _create_own_vector(matrix):
-        return HierarchyAnalyze._iteration_method(matrix)
-        # return HierarchyAnalyze._directed_method(matrix)
+        if HierarchyAnalyze._method == fields.ITERATION:
+            return HierarchyAnalyze._iteration_method(matrix)
+        else:
+            return HierarchyAnalyze._directed_method(matrix)
 
     @staticmethod
     def __add_parameters(result):
         result[fields.IS] = numpy.abs((result[fields.LAMBDA_MAX] - result[fields.N]) / (result[fields.N] - 1))
         result[fields.OS] = (result[fields.IS] / HierarchyAnalyze._random_index)
+        result[fields.SI] = HierarchyAnalyze._random_index
 
     @staticmethod
     def _directed_method(matrix):
@@ -59,7 +79,7 @@ class HierarchyAnalyze:
             columns_sums.append(numpy.sum(row))
 
         result = {
-            fields.NORMING_VALUES: norming_values,
+            fields.NORMING_VALUES: norming_values.tolist(),
             fields.LAMBDA_MAX: numpy.dot(norming_values, columns_sums),
             fields.N: n
         }
@@ -117,7 +137,7 @@ class HierarchyAnalyze:
         lambda_max = numpy.dot(lambda_max, v2)
 
         result = {
-            fields.NORMING_VALUES: v2,
+            fields.NORMING_VALUES: v2.tolist(),
             fields.LAMBDA_MAX: lambda_max,
             fields.N: n
         }
@@ -143,8 +163,8 @@ class HierarchyAnalyze:
 
     @staticmethod
     def _create_levels():
-        first_level = 1
-        second_level = numpy.dot(HierarchyAnalyze._prefers_table[fields.PARAMETERS][fields.NORMING_VALUES], 1)
+        first_level = [1]
+        second_level = numpy.dot(HierarchyAnalyze._prefers_table[fields.PARAMETERS][fields.NORMING_VALUES], 1).tolist()
         third_level = []
 
         paired_comparisons = HierarchyAnalyze._paired_comparisons
@@ -159,13 +179,17 @@ class HierarchyAnalyze:
         HierarchyAnalyze._levels.append(first_level)
         HierarchyAnalyze._levels.append(second_level)
         HierarchyAnalyze._levels.append(third_level)
-        print(HierarchyAnalyze._levels)
 
     @staticmethod
-    def get_result(dataset, prefers_table):
-        HierarchyAnalyze._init(dataset, prefers_table)
-        prefers_table[fields.PARAMETERS] = HierarchyAnalyze._create_own_vector(HierarchyAnalyze._prefers_matrix)
+    def get_result(dataset, prefers_table, method):
+        HierarchyAnalyze._init(dataset, prefers_table, method)
+        HierarchyAnalyze._prefers_table[fields.PARAMETERS] = \
+            HierarchyAnalyze._create_own_vector(HierarchyAnalyze._prefers_matrix)
         HierarchyAnalyze._create_paired_comparisons()
-        print(prefers_table)
-        print(HierarchyAnalyze._paired_comparisons)
         HierarchyAnalyze._create_levels()
+
+        return {
+            fields.PREFERS_TABLE: HierarchyAnalyze._prefers_table,
+            fields.PAIRED_COMPARISONS: HierarchyAnalyze._paired_comparisons,
+            fields.LEVELS: HierarchyAnalyze._levels
+        }

@@ -1,4 +1,5 @@
 NUMBER = 'number'
+FIELD_NAME = 'field_name'
 PLAYER_DISTANCE = 'player_distance'
 PROMO_CODE = 'promo_code'
 SHOP_DISTANCE = 'shop_distance'
@@ -51,4 +52,12 @@ NORMING_VALUES = 'norming_values'
 LAMBDA_MAX = 'lambda_max'
 IS = 'is'
 OS = 'os'
+SI = 'si'
 PARAMETERS = 'parameters'
+
+PREFERS_TABLE = 'prefersTable'
+PAIRED_COMPARISONS = 'pairedComparisons'
+LEVELS = 'levels'
+
+DIRECTED = 'directed'
+ITERATION = 'iteration'
